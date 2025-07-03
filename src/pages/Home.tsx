@@ -2,6 +2,12 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import heroImage from "@/assets/hero-dishes.jpg";
+import SmartStats from "@/components/SmartStats";
+import DishJourney from "@/components/DishJourney";
+import ZeroWasteMeter from "@/components/ZeroWasteMeter";
+import UnboxingAnimation from "@/components/UnboxingAnimation";
+import LifecycleSlider from "@/components/LifecycleSlider";
+import HybitsDNA from "@/components/HybitsDNA";
 
 const Home = () => {
   const [counters, setCounters] = useState({
@@ -52,6 +58,9 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Smart Stats Banner */}
+      <SmartStats />
+      
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-background via-muted/20 to-accent/10 py-20 lg:py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -104,21 +113,36 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Statistics Section */}
+      {/* Statistics Section with Zero Waste Meter */}
       <section className="py-16 bg-accent/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 text-center">
-            <div className="space-y-2">
+          <div className="grid lg:grid-cols-3 gap-8">
+            <div className="text-center space-y-2">
               <div className="counter">{counters.plastic.toLocaleString()}+ kg</div>
               <p className="text-muted-foreground">Plastic Waste Saved</p>
             </div>
-            <div className="space-y-2">
+            <div className="text-center space-y-2">
               <div className="counter">{counters.dishes.toLocaleString()}</div>
               <p className="text-muted-foreground">Dishes Washed</p>
+            </div>
+            <div className="lg:row-span-2">
+              <ZeroWasteMeter />
             </div>
           </div>
         </div>
       </section>
+
+      {/* Dish Journey */}
+      <DishJourney />
+
+      {/* Unboxing Animation */}
+      <UnboxingAnimation />
+
+      {/* Lifecycle Loop Slider */}
+      <LifecycleSlider />
+
+      {/* Hybits DNA Section */}
+      <HybitsDNA />
 
       {/* Testimonials Section */}
       <section className="py-20 bg-background">

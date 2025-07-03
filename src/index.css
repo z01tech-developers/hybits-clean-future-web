@@ -195,4 +195,11 @@
   .step-card {
     @apply bg-accent/20 p-6 rounded-xl border border-accent transition-smooth;
   }
+
+  /* DNA Section animations */
+  @keyframes dash {
+    to {
+      stroke-dashoffset: -10;
+    }
+  }
 }
