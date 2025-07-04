@@ -56,7 +56,7 @@ const Services = () => {
         {/* Header */}
         <div className="text-center mb-20">
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-            Who We <span className="eco-gradient bg-clip-text text-transparent">Serve</span>
+            Who We <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Serve</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Tailored solutions for every dining need, from intimate gatherings to large-scale operations
@@ -66,7 +66,7 @@ const Services = () => {
         {/* Service Cards */}
         <div className="grid lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => (
-            <Card key={index} className="service-card">
+            <Card key={index} className="service-card bg-card border border-primary shadow-md">
               <div className="text-4xl mb-6">{service.icon}</div>
               <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
               <p className="text-muted-foreground mb-6">{service.description}</p>
@@ -104,7 +104,7 @@ const Services = () => {
         </div>
 
         {/* Comparison Section */}
-        <div className="bg-accent/5 rounded-3xl p-8 lg:p-12 mb-16">
+        <div className="bg-secondary/20 rounded-3xl p-8 lg:p-12 mb-16">
           <h2 className="text-3xl font-bold text-center mb-12">
             Why Choose Hybits Over Traditional Options?
           </h2>
@@ -155,7 +155,7 @@ const Services = () => {
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Get a customized quote based on your specific needs and volume requirements
           </p>
-          <Button className="btn-eco-primary text-lg px-8 py-4">
+          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-4 rounded-xl transition-smooth transform hover:scale-105 shadow-lg">
             Talk to a Specialist
           </Button>
         </div>

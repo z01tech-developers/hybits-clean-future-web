@@ -63,12 +63,12 @@ const Impact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-muted/10">
+    <div className="min-h-screen bg-gradient-to-br from-primary via-secondary/10 to-background/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Header */}
         <div className="text-center mb-20">
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-            Making a <span className="eco-gradient bg-clip-text text-transparent">Real Difference</span>
+            Making a <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Real Difference</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Every dish washed, every event served, every choice made contributes to a more sustainable future
@@ -77,28 +77,28 @@ const Impact = () => {
 
         {/* Impact Counters */}
         <div className="grid md:grid-cols-4 gap-8 mb-20">
-          <Card className="p-8 text-center service-card">
+          <Card className="p-8 text-center bg-card border border-primary shadow-md">
             <div className="text-3xl mb-4">♻️</div>
             <div className="counter text-2xl mb-2">{counters.plastic.toLocaleString()}+</div>
             <div className="text-sm font-medium text-primary mb-1">Kilograms</div>
             <p className="text-muted-foreground text-sm">Plastic Waste Reduced</p>
           </Card>
           
-          <Card className="p-8 text-center service-card">
+          <Card className="p-8 text-center bg-card border border-primary shadow-md">
             <div className="text-3xl mb-4">💧</div>
             <div className="counter text-2xl mb-2">{counters.water.toLocaleString()}+</div>
             <div className="text-sm font-medium text-secondary mb-1">Liters</div>
             <p className="text-muted-foreground text-sm">Water Saved Through Efficiency</p>
           </Card>
 
-          <Card className="p-8 text-center service-card">
+          <Card className="p-8 text-center bg-card border border-primary shadow-md">
             <div className="text-3xl mb-4">🎉</div>
             <div className="counter text-2xl mb-2">{counters.events.toLocaleString()}+</div>
             <div className="text-sm font-medium text-primary mb-1">Events</div>
             <p className="text-muted-foreground text-sm">Successfully Served</p>
           </Card>
 
-          <Card className="p-8 text-center service-card">
+          <Card className="p-8 text-center bg-card border border-primary shadow-md">
             <div className="text-3xl mb-4">🍽️</div>
             <div className="counter text-2xl mb-2">{counters.dishes.toLocaleString()}+</div>
             <div className="text-sm font-medium text-secondary mb-1">Dishes</div>
@@ -107,7 +107,7 @@ const Impact = () => {
         </div>
 
         {/* Environmental Impact */}
-        <div className="bg-card rounded-3xl p-8 lg:p-12 eco-shadow mb-16">
+        <div className="bg-card rounded-3xl p-8 lg:p-12 shadow-lg mb-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold">
@@ -167,7 +167,7 @@ const Impact = () => {
           
           <div className="grid lg:grid-cols-3 gap-8">
             {caseStudies.map((study, index) => (
-              <Card key={index} className="p-6 service-card">
+              <Card key={index} className="p-6 bg-card border border-primary shadow-md">
                 <div className="space-y-4">
                   <div>
                     <h3 className="text-lg font-bold">{study.title}</h3>
@@ -175,7 +175,7 @@ const Impact = () => {
                     <p className="text-sm text-muted-foreground">{study.stats}</p>
                   </div>
                   
-                  <div className="p-4 bg-accent/20 rounded-lg">
+                  <div className="p-4 bg-secondary/20 rounded-lg">
                     <p className="text-sm font-medium text-accent-foreground">{study.impact}</p>
                   </div>
                   
@@ -195,20 +195,20 @@ const Impact = () => {
           <h2 className="text-3xl font-bold mb-6">Our 2025 Goals</h2>
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <div className="text-4xl font-bold eco-gradient bg-clip-text text-transparent mb-2">50,000 kg</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">50,000 kg</div>
               <p className="text-muted-foreground">Plastic waste prevented</p>
             </div>
             <div>
-              <div className="text-4xl font-bold eco-gradient bg-clip-text text-transparent mb-2">1,000+</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">1,000+</div>
               <p className="text-muted-foreground">Events served sustainably</p>
             </div>
             <div>
-              <div className="text-4xl font-bold eco-gradient bg-clip-text text-transparent mb-2">10 Cities</div>
+              <div className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">10 Cities</div>
               <p className="text-muted-foreground">Expanded operations</p>
             </div>
           </div>
           
-          <Button className="btn-eco-primary text-lg px-8 py-4">
+          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-4 rounded-xl transition-smooth transform hover:scale-105 shadow-lg">
             Join the Sustainable Dining Movement
           </Button>
         </div>

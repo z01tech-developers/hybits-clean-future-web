@@ -32,7 +32,7 @@ const ZeroWasteMeter = () => {
   return (
     <div className="bg-accent/20 border border-accent rounded-2xl p-6 lg:p-8">
       <div className="text-center mb-6">
-        <h3 className="text-2xl font-bold mb-2 eco-gradient bg-clip-text text-transparent">
+        <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
           Zero Waste Meter
         </h3>
         <p className="text-muted-foreground">Live impact tracker • Updated today</p>

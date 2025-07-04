@@ -58,7 +58,7 @@ const Contact = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-            Let's Talk <span className="eco-gradient bg-clip-text text-transparent">Sustainability</span>
+            Let's Talk <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Sustainability</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to make your next event or operation completely sustainable? 
@@ -68,7 +68,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <Card className="p-8 eco-shadow">
+          <Card className="p-8 shadow-lg bg-card border border-primary">
             <h2 className="text-2xl font-bold mb-6">Get Your Custom Quote</h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -132,7 +132,7 @@ const Contact = () => {
                 />
               </div>
 
-              <Button type="submit" className="btn-eco-primary w-full">
+              <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold w-full py-3 px-8 rounded-xl transition-smooth transform hover:scale-105 shadow-lg">
                 Send Message
               </Button>
             </form>
@@ -157,7 +157,7 @@ const Contact = () => {
             </div>
 
             {/* Pickup Zones */}
-            <Card className="p-6">
+            <Card className="p-6 bg-card border border-primary">
               <h3 className="text-lg font-bold mb-4">Current Service Areas</h3>
               <div className="space-y-2 text-sm">
                 <p className="flex items-center">
@@ -179,7 +179,7 @@ const Contact = () => {
             </Card>
 
             {/* Business Hours */}
-            <Card className="p-6">
+            <Card className="p-6 bg-card border border-primary">
               <h3 className="text-lg font-bold mb-4">Business Hours</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
@@ -228,9 +228,6 @@ const Contact = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="outline" className="transition-smooth hover:bg-muted">
               View FAQ
-            </Button>
-            <Button className="btn-eco-secondary">
-              Schedule Demo
             </Button>
           </div>
         </div>

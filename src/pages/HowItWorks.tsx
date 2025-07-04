@@ -25,12 +25,12 @@ const HowItWorks = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/10 to-accent/5">
+    <div className="min-h-screen bg-gradient-to-br from-primary via-background/80 to-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Header */}
         <div className="text-center mb-20">
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-            How <span className="eco-gradient bg-clip-text text-transparent">Hybits</span> Works
+            How <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Hybits</span> Works
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A simple, sustainable solution that transforms your dining experience from start to finish
@@ -47,7 +47,7 @@ const HowItWorks = () => {
               )}
               
               {/* Step Card */}
-              <div className="step-card relative z-10 text-center">
+              <div className="step-card relative z-10 text-center bg-card border border-primary">
                 <div className="text-4xl mb-4">{step.icon}</div>
                 <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-primary-foreground font-bold text-sm">{index + 1}</span>
@@ -60,7 +60,7 @@ const HowItWorks = () => {
         </div>
 
         {/* Detailed Process */}
-        <div className="bg-card rounded-3xl p-8 lg:p-12 eco-shadow mb-12">
+        <div className="bg-card rounded-3xl p-8 lg:p-12 shadow-lg mb-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold">
@@ -104,7 +104,7 @@ const HowItWorks = () => {
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join hundreds of satisfied customers who have made the switch to sustainable dining
           </p>
-          <Button className="btn-eco-primary text-lg px-8 py-4">
+          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-4 rounded-xl transition-smooth transform hover:scale-105 shadow-lg">
             Let's Get Started
           </Button>
         </div>

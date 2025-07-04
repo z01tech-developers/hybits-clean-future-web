@@ -47,7 +47,7 @@ const HybitsDNA = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            The <span className="eco-gradient bg-clip-text text-transparent">Hybits DNA</span>
+            The <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Hybits DNA</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Our core values form an interconnected ecosystem of sustainability and innovation

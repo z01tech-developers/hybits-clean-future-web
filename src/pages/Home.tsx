@@ -62,14 +62,14 @@ const Home = () => {
       <SmartStats />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-background via-muted/20 to-accent/10 py-20 lg:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-primary via-background/80 to-secondary py-20 lg:py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                   It's not just clean.{" "}
-                  <span className="eco-gradient bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                     It's Hybits clean.
                   </span>
                 </h1>
@@ -80,15 +80,15 @@ const Home = () => {
 
               {/* Value Propositions */}
               <div className="grid sm:grid-cols-3 gap-6">
-                <div className="text-center p-4 rounded-lg bg-accent/20 border border-accent">
+                <div className="text-center p-4 rounded-lg bg-card border border-primary">
                   <div className="text-2xl mb-2">🧼</div>
                   <h3 className="font-semibold text-sm">100% Sterilized Dishes</h3>
                 </div>
-                <div className="text-center p-4 rounded-lg bg-accent/20 border border-accent">
+                <div className="text-center p-4 rounded-lg bg-card border border-primary">
                   <div className="text-2xl mb-2">♻️</div>
                   <h3 className="font-semibold text-sm">90% Less Plastic Waste</h3>
                 </div>
-                <div className="text-center p-4 rounded-lg bg-accent/20 border border-accent">
+                <div className="text-center p-4 rounded-lg bg-card border border-primary">
                   <div className="text-2xl mb-2">🚚</div>
                   <h3 className="font-semibold text-sm">Zero Hassle Pickup & Delivery</h3>
                 </div>
@@ -96,8 +96,7 @@ const Home = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="btn-eco-primary">Get a Quote</Button>
-                <Button className="btn-eco-secondary">Book a Demo</Button>
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-8 rounded-xl transition-smooth transform hover:scale-105 shadow-lg">Get a Quote</Button>
               </div>
             </div>
 
@@ -105,7 +104,7 @@ const Home = () => {
               <img
                 src={heroImage}
                 alt="UV-sterilized dishes"
-                className="w-full h-auto rounded-2xl eco-shadow animate-float"
+                className="w-full h-auto rounded-2xl shadow-lg animate-float"
               />
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full animate-pulse-glow"></div>
             </div>
@@ -113,10 +112,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Statistics Section with Zero Waste Meter */}
-      <section className="py-16 bg-accent/5">
+      {/* Counters Section */}
+      <section className="py-16 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8">
             <div className="text-center space-y-2">
               <div className="counter">{counters.plastic.toLocaleString()}+ kg</div>
               <p className="text-muted-foreground">Plastic Waste Saved</p>
@@ -125,15 +124,16 @@ const Home = () => {
               <div className="counter">{counters.dishes.toLocaleString()}</div>
               <p className="text-muted-foreground">Dishes Washed</p>
             </div>
-            <div className="lg:row-span-2">
-              <ZeroWasteMeter />
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Dish Journey */}
-      <DishJourney />
+      {/* Zero Waste Meter Section */}
+      <section className="py-12 bg-background">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ZeroWasteMeter />
+        </div>
+      </section>
 
       {/* Unboxing Animation */}
       <UnboxingAnimation />
@@ -158,7 +158,7 @@ const Home = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-6 service-card">
+              <Card key={index} className="p-6 bg-card border border-primary shadow-md">
                 <blockquote className="text-muted-foreground mb-4 italic">
                   "{testimonial.quote}"
                 </blockquote>
