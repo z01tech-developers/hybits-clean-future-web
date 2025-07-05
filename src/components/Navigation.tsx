@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import hybitsLogo from "@/assets/LOGO.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,13 +19,8 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">H</span>
-              </div>
-              <span className="font-bold text-xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Hybits
-              </span>
+            <Link to="/" className="flex items-center">
+              <img src={hybitsLogo} alt="Hybits Sterilised Dish Logo" className="h-10 w-auto" />
             </Link>
           </div>
 

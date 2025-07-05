@@ -1,4 +1,5 @@
 import React from "react";
+import hybitsLogo from "@/assets/LOGO.png";
 
 const quickLinks = [
   { name: "About Hybits", url: "/" },
@@ -40,10 +41,7 @@ const Footer: React.FC = () => {
         {/* Logo & About */}
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-xl font-bold text-primary-foreground shadow-lg">
-              <svg className="w-7 h-7 text-background" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z" /></svg>
-            </div>
-            <span className="font-extrabold text-2xl tracking-tight text-background">HYBITS</span>
+            <img src={hybitsLogo} alt="Hybits Sterilised Dish Logo" className="h-12 w-auto" />
           </div>
           <p className="text-sm text-background/80 mb-2">Empowering a zero-waste future, one dish at a time.</p>
           <ul className="text-background/80 text-sm space-y-2">
