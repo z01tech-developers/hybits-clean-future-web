@@ -1,6 +1,93 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
+// InteractiveProcessSection: Interactive 'How Our Service Works' section
+import React, { useState, useRef } from "react";
+
+const processSteps = [
+  { icon: "📦", label: "Order", desc: "Place your order online or via phone." },
+  { icon: "🧼", label: "Sterilize", desc: "Dishes are professionally cleaned and sterilized." },
+  { icon: "🚚", label: "Deliver", desc: "We deliver to your venue, on time, every time." },
+  { icon: "♻️", label: "Collect & Reuse", desc: "We collect, wash, and reuse for the next event." },
+];
+
+function InteractiveProcessSection() {
+  const [activeStep, setActiveStep] = useState(0);
+  const stepRefs = useRef([]);
+
+  // Keyboard navigation
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowRight" && activeStep < processSteps.length - 1) {
+      setActiveStep((prev) => prev + 1);
+      stepRefs.current[activeStep + 1]?.focus();
+    } else if (e.key === "ArrowLeft" && activeStep > 0) {
+      setActiveStep((prev) => prev - 1);
+      stepRefs.current[activeStep - 1]?.focus();
+    }
+  };
+
+  return (
+    <div className="my-20">
+      <h2 className="text-2xl font-bold text-center mb-8 animate-fade-in-up">How Our Service Works</h2>
+      {/* Progress Bar */}
+      <div className="relative flex justify-center mb-8">
+        <div className="absolute top-1/2 left-0 right-0 h-2 bg-primary/10 rounded-full w-full" style={{ transform: 'translateY(-50%)' }}></div>
+        <div
+          className="absolute top-1/2 left-0 h-2 bg-primary rounded-full transition-all duration-500"
+          style={{ width: `${((activeStep + 1) / processSteps.length) * 100}%`, transform: 'translateY(-50%)' }}
+        ></div>
+        <div className="flex w-full justify-between relative z-10">
+          {processSteps.map((step, idx) => (
+            <button
+              key={step.label}
+              ref={el => stepRefs.current[idx] = el}
+              className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all duration-300 text-2xl focus:outline-none focus:ring-2 focus:ring-primary/60
+                ${activeStep === idx ? 'bg-primary text-primary-foreground border-primary scale-110 shadow-lg' : 'bg-background border-primary/40 text-primary'}
+              `}
+              tabIndex={0}
+              aria-label={step.label}
+              aria-pressed={activeStep === idx}
+              onClick={() => setActiveStep(idx)}
+              onMouseEnter={() => setActiveStep(idx)}
+              onFocus={() => setActiveStep(idx)}
+              onKeyDown={handleKeyDown}
+            >
+              {step.icon}
+            </button>
+          ))}
+        </div>
+      </div>
+      {/* Step Cards */}
+      <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+        {processSteps.map((step, idx) => (
+          <div
+            key={step.label}
+            className={`group relative flex-1 max-w-xs min-w-[200px] cursor-pointer transition-all duration-300
+              ${activeStep === idx ? 'z-10 scale-105 shadow-2xl border-primary border-2 bg-card' : 'opacity-70 hover:scale-105 hover:z-10'}
+            `}
+            onClick={() => setActiveStep(idx)}
+            onMouseEnter={() => setActiveStep(idx)}
+            tabIndex={0}
+            aria-label={step.label}
+            aria-pressed={activeStep === idx}
+            onKeyDown={handleKeyDown}
+          >
+            <div className={`flex flex-col items-center p-6 rounded-2xl border transition-all duration-300
+              ${activeStep === idx ? 'border-primary bg-primary/10' : 'border-primary/30 bg-background'}
+            `}>
+              <div className={`text-4xl mb-4 transition-transform duration-300 ${activeStep === idx ? 'animate-spin-slow' : 'group-hover:scale-110'}`}>{step.icon}</div>
+              <h3 className={`text-lg font-semibold mb-2 ${activeStep === idx ? 'text-primary' : ''}`}>{step.label}</h3>
+              <p className={`text-muted-foreground text-sm leading-relaxed transition-all duration-300 ${activeStep === idx ? 'font-semibold' : ''}`}>{step.desc}</p>
+            </div>
+            {/* Active indicator */}
+            {activeStep === idx && <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-full animate-fade-in-up"></div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const Services = () => {
   const services = [
     {
@@ -66,11 +153,10 @@ const Services = () => {
         {/* Service Cards */}
         <div className="grid lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => (
-            <Card key={index} className="service-card bg-card border border-primary shadow-md">
+            <Card key={index} className="service-card bg-card border border-primary shadow-md animate-fade-in-up" style={{ animationDelay: `${index * 120}ms` }}>
               <div className="text-4xl mb-6">{service.icon}</div>
               <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
               <p className="text-muted-foreground mb-6">{service.description}</p>
-              
               <div className="space-y-4 mb-6">
                 <h4 className="font-semibold text-sm uppercase tracking-wide">What's Included:</h4>
                 <ul className="space-y-2">
@@ -82,7 +168,6 @@ const Services = () => {
                   ))}
                 </ul>
               </div>
-
               <div className="pt-6 border-t border-border">
                 <div className="grid grid-cols-3 gap-4 text-center text-xs">
                   <div>
@@ -101,6 +186,19 @@ const Services = () => {
               </div>
             </Card>
           ))}
+        </div>
+
+        {/* Hybits Process Section */}
+        <InteractiveProcessSection />
+
+        {/* Customer Success Story/Testimonial */}
+        <div className="max-w-2xl mx-auto my-16 animate-fade-in-up">
+          <div className="bg-card border border-primary rounded-2xl p-8 shadow-lg flex flex-col items-center text-center">
+            <div className="text-4xl mb-2">💡</div>
+            <blockquote className="italic text-lg text-muted-foreground mb-4">“Switching to Hybits for our food court was the best decision. The process is seamless, and our waste has dropped dramatically!”</blockquote>
+            <div className="font-semibold text-primary">Rajesh Kumar</div>
+            <div className="text-xs text-muted-foreground">Food Court Owner</div>
+          </div>
         </div>
 
         {/* Comparison Section */}
