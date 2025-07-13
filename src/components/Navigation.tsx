@@ -32,8 +32,8 @@ const Navigation = () => {
                 to={item.path}
                 className={`text-sm font-medium transition-smooth ${
                   location.pathname === item.path
-                    ? "text-primary border-b-2 border-primary"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-primary-dark border-b-2 border-primary-dark"
+                    : "text-foreground hover:text-primary-dark"
                 }`}
               >
                 {item.name}

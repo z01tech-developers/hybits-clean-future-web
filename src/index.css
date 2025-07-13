@@ -59,6 +59,7 @@
     --sidebar-accent-foreground: 163 66% 18%;
     --sidebar-border: 156 39% 54%;
     --sidebar-ring: 156 39% 54%;
+    --primary-dark: 145 39% 34%; /* #145c3a */
   }
 
   .dark {

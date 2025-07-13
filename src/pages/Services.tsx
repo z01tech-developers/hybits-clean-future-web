@@ -191,16 +191,6 @@ const Services = () => {
         {/* Hybits Process Section */}
         <InteractiveProcessSection />
 
-        {/* Customer Success Story/Testimonial */}
-        <div className="max-w-2xl mx-auto my-16 animate-fade-in-up">
-          <div className="bg-card border border-primary rounded-2xl p-8 shadow-lg flex flex-col items-center text-center">
-            <div className="text-4xl mb-2">💡</div>
-            <blockquote className="italic text-lg text-muted-foreground mb-4">“Switching to Hybits for our food court was the best decision. The process is seamless, and our waste has dropped dramatically!”</blockquote>
-            <div className="font-semibold text-primary">Rajesh Kumar</div>
-            <div className="text-xs text-muted-foreground">Food Court Owner</div>
-          </div>
-        </div>
-
         {/* Comparison Section */}
         <div className="bg-secondary/20 rounded-3xl p-8 lg:p-12 mb-16">
           <h2 className="text-3xl font-bold text-center mb-12">
@@ -254,7 +244,7 @@ const Services = () => {
             Get a customized quote based on your specific needs and volume requirements
           </p>
           <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-4 rounded-xl transition-smooth transform hover:scale-105 shadow-lg">
-            Talk to a Specialist
+            Contact Us
           </Button>
         </div>
       </div>

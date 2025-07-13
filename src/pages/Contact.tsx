@@ -1,12 +1,20 @@
-import { useState } from "react";
+'use client';
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from "@/components/ui/select";
 
 const Contact = () => {
+  const [result, setResult] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     organization: "",
@@ -19,10 +27,32 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    setResult("Sending...");
+
+    const form = new FormData();
+    form.append("access_key", "44e02069-0335-499c-bcf8-e7c53db8c976");
+    form.append("name", formData.name);
+    form.append("organization", formData.organization);
+    form.append("useCase", formData.useCase);
+    form.append("dishCount", formData.dishCount);
+    form.append("message", formData.message);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: form
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("✅ Form Submitted Successfully!");
+      setFormData({ name: "", organization: "", useCase: "", dishCount: "", message: "" });
+    } else {
+      console.error("Error:", data);
+      setResult("❌ Submission failed. Try again.");
+    }
   };
 
   const contactInfo = [
@@ -67,10 +97,9 @@ const Contact = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Form */}
+          {/* Left: Form */}
           <Card className="p-8 shadow-lg bg-card border border-primary">
             <h2 className="text-2xl font-bold mb-6">Get Your Custom Quote</h2>
-            
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
@@ -83,7 +112,6 @@ const Contact = () => {
                     required
                   />
                 </div>
-                
                 <div className="space-y-2">
                   <Label htmlFor="organization">Organization *</Label>
                   <Input
@@ -98,7 +126,10 @@ const Contact = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="useCase">Use Case Type *</Label>
-                <Select onValueChange={(value) => handleInputChange("useCase", value)}>
+                <Select
+                  value={formData.useCase}
+                  onValueChange={(value) => handleInputChange("useCase", value)}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select your use case" />
                   </SelectTrigger>
@@ -129,21 +160,21 @@ const Contact = () => {
                   className="min-h-[120px]"
                   value={formData.message}
                   onChange={(e) => handleInputChange("message", e.target.value)}
+                  required
                 />
               </div>
 
-              <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold w-full py-3 px-8 rounded-xl transition-smooth transform hover:scale-105 shadow-lg">
+              <Button type="submit" className="w-full">
                 Send Message
               </Button>
+              <p className="text-sm text-muted-foreground text-center">{result}</p>
             </form>
           </Card>
 
-          {/* Contact Information */}
+          {/* Right: Info */}
           <div className="space-y-8">
-            {/* Contact Details */}
             <div className="space-y-6">
               <h2 className="text-2xl font-bold">Get in Touch</h2>
-              
               {contactInfo.map((info, index) => (
                 <div key={index} className="flex items-start space-x-4">
                   <div className="text-2xl">{info.icon}</div>
@@ -156,7 +187,6 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Pickup Zones */}
             <Card className="p-6 bg-card border border-primary">
               <h3 className="text-lg font-bold mb-4">Current Service Areas</h3>
               <div className="space-y-2 text-sm">
@@ -178,7 +208,6 @@ const Contact = () => {
               </div>
             </Card>
 
-            {/* Business Hours */}
             <Card className="p-6 bg-card border border-primary">
               <h3 className="text-lg font-bold mb-4">Business Hours</h3>
               <div className="space-y-2 text-sm">
@@ -200,7 +229,6 @@ const Contact = () => {
               </div>
             </Card>
 
-            {/* Social Media */}
             <div>
               <h3 className="text-lg font-bold mb-4">Follow Us</h3>
               <div className="flex space-x-4">
@@ -208,7 +236,7 @@ const Contact = () => {
                   <a
                     key={index}
                     href={social.url}
-                    className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-xl hover:bg-primary hover:text-primary-foreground transition-smooth"
+                    className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-xl hover:bg-primary hover:text-white transition"
                     title={social.name}
                   >
                     {social.icon}
@@ -219,17 +247,15 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* FAQ Section */}
+        {/* FAQ */}
         <div className="mt-20 text-center">
           <h2 className="text-2xl font-bold mb-4">Have Questions?</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Check out our frequently asked questions or schedule a demo call to see our process firsthand.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="outline" className="transition-smooth hover:bg-muted">
-              View FAQ
-            </Button>
-          </div>
+          <Button variant="outline" className="transition hover:bg-muted">
+            View FAQ
+          </Button>
         </div>
       </div>
     </div>

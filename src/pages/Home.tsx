@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import heroImage from "@/assets/hero-dishes.jpg";
+import heroImagejpg from "@/assets/hero-dishes.jpg";
 import SmartStats from "@/components/SmartStats";
 import DishJourney from "@/components/DishJourney";
 import ZeroWasteMeter from "@/components/ZeroWasteMeter";
@@ -102,9 +102,12 @@ const Home = () => {
 
             <div className="relative">
               <img
-                src={heroImage}
+                src={heroImagejpg}
+                srcSet={`${heroImagejpg} 584w`}
+                sizes="(max-width: 600px) 320px, 584px"
                 alt="UV-sterilized dishes"
                 className="w-full h-auto rounded-2xl shadow-lg animate-float"
+                fetchPriority="high"
               />
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full animate-pulse-glow"></div>
             </div>
