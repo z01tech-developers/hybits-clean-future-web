@@ -1,57 +1,72 @@
 'use client';
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
+
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const Contact = () => {
-  const [result, setResult] = useState("");
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     organization: "",
     useCase: "",
     dishCount: "",
     message: ""
   });
 
+  const [result, setResult] = useState("");
+
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setResult("Sending...");
 
     const form = new FormData();
     form.append("access_key", "44e02069-0335-499c-bcf8-e7c53db8c976");
     form.append("name", formData.name);
+    form.append("email", formData.email);
     form.append("organization", formData.organization);
     form.append("useCase", formData.useCase);
     form.append("dishCount", formData.dishCount);
     form.append("message", formData.message);
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: form
-    });
+    // Debug logs
+    for (const [key, value] of form.entries()) {
+      console.log(`${key}: ${value}`);
+    }
 
-    const data = await response.json();
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: form
+      });
 
-    if (data.success) {
-      setResult("✅ Form Submitted Successfully!");
-      setFormData({ name: "", organization: "", useCase: "", dishCount: "", message: "" });
-    } else {
-      console.error("Error:", data);
-      setResult("❌ Submission failed. Try again.");
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("✅ Form Submitted Successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          organization: "",
+          useCase: "",
+          dishCount: "",
+          message: ""
+        });
+      } else {
+        console.error("Web3Forms Error:", data);
+        setResult("❌ Submission failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Network Error:", error);
+      setResult("❌ Something went wrong. Please check your connection.");
     }
   };
 
@@ -97,10 +112,11 @@ const Contact = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Left: Form */}
+          {/* Contact Form */}
           <Card className="p-8 shadow-lg bg-card border border-primary">
             <h2 className="text-2xl font-bold mb-6">Get Your Custom Quote</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
+
+            <form onSubmit={onSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Name *</Label>
@@ -112,6 +128,7 @@ const Contact = () => {
                     required
                   />
                 </div>
+
                 <div className="space-y-2">
                   <Label htmlFor="organization">Organization *</Label>
                   <Input
@@ -125,11 +142,20 @@ const Contact = () => {
               </div>
 
               <div className="space-y-2">
+                <Label htmlFor="email">Email *</Label>
+                <Input
+                  type="email"
+                  id="email"
+                  placeholder="you@example.com"
+                  value={formData.email}
+                  onChange={(e) => handleInputChange("email", e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
                 <Label htmlFor="useCase">Use Case Type *</Label>
-                <Select
-                  value={formData.useCase}
-                  onValueChange={(value) => handleInputChange("useCase", value)}
-                >
+                <Select value={formData.useCase} onValueChange={(value) => handleInputChange("useCase", value)} required>
                   <SelectTrigger>
                     <SelectValue placeholder="Select your use case" />
                   </SelectTrigger>
@@ -153,7 +179,7 @@ const Contact = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
+                <Label htmlFor="message">Message *</Label>
                 <Textarea
                   id="message"
                   placeholder="Tell us about your specific requirements, event details, or any questions you have..."
@@ -167,11 +193,11 @@ const Contact = () => {
               <Button type="submit" className="w-full">
                 Send Message
               </Button>
-              <p className="text-sm text-muted-foreground text-center">{result}</p>
+              {result && <p className="text-sm text-center text-muted-foreground">{result}</p>}
             </form>
           </Card>
 
-          {/* Right: Info */}
+          {/* Contact Info Section */}
           <div className="space-y-8">
             <div className="space-y-6">
               <h2 className="text-2xl font-bold">Get in Touch</h2>
@@ -247,7 +273,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* FAQ */}
+        {/* FAQ Section */}
         <div className="mt-20 text-center">
           <h2 className="text-2xl font-bold mb-4">Have Questions?</h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
