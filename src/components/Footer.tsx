@@ -2,35 +2,35 @@ import React from "react";
 import hybitsLogo from "@/assets/LOGO.png";
 
 const quickLinks = [
-  { name: "About Hybits", url: "/" },
-  { name: "How It Works", url: "/how-it-works" },
-  { name: "Services", url: "/services" },
-  { name: "Impact", url: "/impact" },
-  { name: "Contact", url: "/contact" },
+  { name: "About Hybits", url: "/", icon: "🏢" },
+  { name: "How It Works", url: "/how-it-works", icon: "⚙️" },
+  { name: "Services", url: "/services", icon: "🛠️" },
+  { name: "Impact", url: "/impact", icon: "🌱" },
+  { name: "Contact", url: "/contact", icon: "✉️" },
 ];
 
 const ecoTips = [
   {
-    icon: <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8a8 8 0 0 1-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>,
+    icon: <span className="w-7 h-7 text-primary">💧</span>,
     title: "Save Water",
     text: "Turn off the tap while scrubbing dishes to save up to 50% water.",
   },
   {
-    icon: <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+    icon: <span className="w-7 h-7 text-primary">♻️</span>,
     title: "Go Reusable",
     text: "Choose reusable dishware over disposables for every meal.",
   },
   {
-    icon: <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>,
+    icon: <span className="w-7 h-7 text-primary">🌿</span>,
     title: "Compost Food Waste",
     text: "Compost leftovers to reduce landfill waste and enrich soil.",
   },
 ];
 
 const socialLinks = [
-  { name: "Instagram", icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>, url: "#" },
-  { name: "LinkedIn", icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z"/><rect width="4" height="4" x="2" y="9"/></svg>, url: "#" },
-  { name: "WhatsApp", icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M21.67 20.13A10 10 0 1 0 3.87 21.67l2.2-.61a1 1 0 0 1 .94.24l2.1 2.1a1 1 0 0 0 1.41 0l2.1-2.1a1 1 0 0 1 .94-.24l2.2.61z"/><path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/></svg>, url: "#" },
+  { name: "Instagram", icon: <span className="w-5 h-5">📸</span>, url: "#" },
+  { name: "LinkedIn", icon: <span className="w-5 h-5">🔗</span>, url: "#" },
+  { name: "WhatsApp", icon: <span className="w-5 h-5">💬</span>, url: "#" },
 ];
 
 const Footer: React.FC = () => {
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
             {quickLinks.map(link => (
               <li key={link.name}>
                 <a href={link.url} className="hover:text-primary transition-colors flex items-center gap-2">
-                  <span className="text-primary">&#8250;</span> {link.name}
+                  <span className="text-primary">{link.icon}</span> {link.name}
                 </a>
               </li>
             ))}
@@ -82,11 +82,11 @@ const Footer: React.FC = () => {
           <h3 className="font-bold text-lg mb-4 text-background">Contact Us</h3>
           <ul className="space-y-3 text-background/80 text-sm">
             <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2.08" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M8 3.13a4 4 0 0 0 0 7.75" /><line x1="12" y1="17" x2="12" y2="17" /></svg>
+              <span className="w-5 h-5 text-primary">📞</span>
               <span>+91 9945624643</span>
             </li>
             <li className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><polyline points="22,6 12,13 2,6" /></svg>
+              <span className="w-5 h-5 text-primary">✉️</span>
               <span>info@hybits.in</span>
             </li>
           </ul>

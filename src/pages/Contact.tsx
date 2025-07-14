@@ -12,6 +12,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phoneNumber: "",
     organization: "",
     useCase: "",
     dishCount: "",
@@ -32,6 +33,8 @@ const Contact = () => {
     form.append("access_key", "44e02069-0335-499c-bcf8-e7c53db8c976");
     form.append("name", formData.name);
     form.append("email", formData.email);
+    form.append("phone number",formData.phoneNumber);
+    // Note: The key "phone number" is used here to match the expected field in
     form.append("organization", formData.organization);
     form.append("useCase", formData.useCase);
     form.append("dishCount", formData.dishCount);
@@ -55,6 +58,7 @@ const Contact = () => {
         setFormData({
           name: "",
           email: "",
+          phoneNumber: "", // Reset phone number field
           organization: "",
           useCase: "",
           dishCount: "",
@@ -152,6 +156,18 @@ const Contact = () => {
                   required
                 />
               </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="phoneNumber">Phone Number *</Label>
+                <Input
+                  type="tel"
+                  id="phoneNumber"
+                  placeholder="Your phone number"
+                  value={formData.phoneNumber}
+                  onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
+                  required
+                />
+                </div>
 
               <div className="space-y-2">
                 <Label htmlFor="useCase">Use Case Type *</Label>
