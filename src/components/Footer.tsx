@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
           <ul className="space-y-3 text-background/80 text-sm">
             <li className="flex items-center gap-2">
               <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2.08" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M8 3.13a4 4 0 0 0 0 7.75" /><line x1="12" y1="17" x2="12" y2="17" /></svg>
-              <span>+91 9945624643</span>
+              <span>+91 9513791184</span>
             </li>
             <li className="flex items-center gap-2">
               <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><polyline points="22,6 12,13 2,6" /></svg>
