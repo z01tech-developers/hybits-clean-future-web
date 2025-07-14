@@ -88,10 +88,10 @@ const App = () => (
               <div className="flex-1">
                 <Routes>
                   <Route path="/" element={<Home />} />
-                  <Route path="/how-it-works" element={<HowItWorks />} />
-                  <Route path="/services" element={<Services />} />
-                  <Route path="/impact" element={<Impact />} />
-                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/How-it-works" element={<HowItWorks />} />
+                  <Route path="/Services" element={<Services />} />
+                  <Route path="/Impact" element={<Impact />} />
+                  <Route path="/Contact" element={<Contact />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </div>
