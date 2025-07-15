@@ -1,33 +1,35 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import React, { useState, useRef, useEffect } from "react";
 import { ClipboardList, Sparkles, Truck, Recycle, Droplet, PartyPopper, UtensilsCrossed, Rocket, Globe, Soup, Users, Waves, Sprout, Package, Microscope } from 'lucide-react';
 
 const stepDetails = [
   {
-    icon: <ClipboardList className="w-8 h-8" />,
+    icon: <span className="text-3xl">📦</span>,
     title: "Book Your Package",
     description: "Choose your dishware package based on event size and requirements",
     funFact: "Did you know? Booking online saves you 10% on your first order!"
   },
   {
-    icon: <Sparkles className="w-8 h-8" />,
+    icon: <span className="text-3xl">🧼</span>,
     title: "Receive Sanitized Dishes",
     description: "Get UV-sterilized, premium quality dishware delivered to your location",
     funFact: "Our dishes are sanitized using hospital-grade UV-C technology."
   },
   {
-    icon: <Sparkles className="w-8 h-8" />,
+    icon: <span className="text-3xl">🍽️</span>,
     title: "Serve with Style",
     description: "Impress your guests with elegant, eco-friendly dining presentation",
     funFact: "Eco-friendly dining can reduce event waste by up to 90%."
   },
   {
-    icon: <Truck className="w-8 h-8" />,
+    icon: <span className="text-3xl">🚚</span>,
     title: "Return – We Pick Up the Rest",
     description: "Relax while we collect, wash, and sanitize everything for you",
     funFact: "We handle all logistics, so you can focus on your event!"
   }
 ];
+
 
 // Timeline animation hook
 function useInViewAnimation(count: number): [React.MutableRefObject<any[]>, boolean[]] {
@@ -123,6 +125,7 @@ const stats = [
 ];
 
 const HowItWorks = () => {
+  const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
   const stepRefs = useRef([]);
   // Keyboard navigation
@@ -213,9 +216,7 @@ const HowItWorks = () => {
                 )}
                 {/* Step Card */}
                 <div
-                  className={`step-card relative z-10 text-center bg-card border transition-all duration-300 cursor-pointer
-                    ${activeStep === index ? 'border-primary scale-105 shadow-2xl' : 'border-primary/40 opacity-80 hover:scale-105 hover:z-10'}
-                  `}
+                  className="step-card relative z-10 text-center bg-card border border-primary/40 opacity-80 shadow-md min-h-[320px] h-[320px] flex flex-col justify-center items-center box-border cursor-pointer"
                   onClick={() => setActiveStep(index)}
                   onMouseEnter={() => setActiveStep(index)}
                   tabIndex={0}
@@ -223,7 +224,7 @@ const HowItWorks = () => {
                   aria-pressed={activeStep === index}
                   onKeyDown={handleKeyDown}
                 >
-                  <div className={`text-4xl mb-4 transition-transform duration-300 ${activeStep === index ? 'scale-125' : 'group-hover:scale-110'}`}>{step.icon}</div>
+                  <div className="text-4xl mb-4">{step.icon}</div>
                   <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                     <span className="text-primary-foreground font-bold text-sm">{index + 1}</span>
                   </div>
@@ -366,8 +367,11 @@ const HowItWorks = () => {
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join hundreds of satisfied customers who have made the switch to sustainable dining
           </p>
-          <Button className="bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-primary-foreground font-semibold text-lg px-10 py-5 rounded-2xl shadow-xl transition-all duration-300 transform hover:scale-110 animate-bounce-slow">
-            Let's Get Started
+          <Button
+            className="bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-primary-foreground font-semibold text-lg px-10 py-5 rounded-2xl shadow-xl transition-all duration-300 transform hover:scale-110 animate-bounce-slow mt-4"
+            onClick={() => navigate("/contact")}
+          >
+            Get Started !
           </Button>
         </div>
       </div>

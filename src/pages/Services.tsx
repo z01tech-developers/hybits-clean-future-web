@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 // InteractiveProcessSection: Interactive 'How Our Service Works' section
 import React, { useState, useRef } from "react";
@@ -89,6 +90,7 @@ function InteractiveProcessSection() {
 }
 
 const Services = () => {
+  const navigate = useNavigate();
   const services = [
     {
       icon: "🎉",
@@ -243,7 +245,8 @@ const Services = () => {
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Get a customized quote based on your specific needs and volume requirements
           </p>
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-4 rounded-xl transition-smooth transform hover:scale-105 shadow-lg">
+          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-4 rounded-xl transition-smooth transform hover:scale-105 shadow-lg"
+            onClick={() => navigate("/contact")}>
             Contact Us
           </Button>
         </div>

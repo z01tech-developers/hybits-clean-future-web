@@ -39,15 +39,40 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Logo & About */}
         <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-3 mb-2">
-            <img src={hybitsLogo} alt="Hybits Sterilised Dish Logo" className="h-12 w-auto" />
+          <div className="flex flex-col items-start gap-3 mb-2">
+            <img src={hybitsLogo} alt="Hybits Sterilised Dish Logo" className="h-12 w-auto mb-2" />
+            <p className="text-sm text-background/80 mb-2">Empowering a zero-waste future, one dish at a time.</p>
+            <ul className="text-background/80 text-sm space-y-2">
+              <li className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path d="M17.657 16.657L13.414 12.414a2 2 0 0 0-2.828 0l-4.243 4.243a8 8 0 1 1 11.314 0z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                <span>
+                  # 46, 1st Floor, HBCS, KEB Layout,<br/>
+                  Kathriguppe Main Road,<br/>
+                  Banashankari 3rd Stage,<br/>
+                    Bengaluru - 560 085
+                </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path d="M22 16.92V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2.08" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  <path d="M8 3.13a4 4 0 0 0 0 7.75" />
+                  <line x1="12" y1="17" x2="12" y2="17" />
+                </svg>
+                <span>Phone: +91 9513791184</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path d="M4 4h16v16H4z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <span>info@hybits.com</span>
+              </li>
+            </ul>
           </div>
-          <p className="text-sm text-background/80 mb-2">Empowering a zero-waste future, one dish at a time.</p>
-          <ul className="text-background/80 text-sm space-y-2">
-            <li className="flex items-center gap-2"><svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 12.414a2 2 0 0 0-2.828 0l-4.243 4.243a8 8 0 1 1 11.314 0z" /><circle cx="12" cy="12" r="3" /></svg> 22/121 Apple Street, New York, NY 10012, USA</li>
-            <li className="flex items-center gap-2"><svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M22 16.92V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2.08" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M8 3.13a4 4 0 0 0 0 7.75" /><line x1="12" y1="17" x2="12" y2="17" /></svg> Phone: +123-456-7890</li>
-            <li className="flex items-center gap-2"><svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><polyline points="22,6 12,13 2,6" /></svg> info@hybits.com</li>
-          </ul>
         </div>
         {/* Quick Links */}
         <div>

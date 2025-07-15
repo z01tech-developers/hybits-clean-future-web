@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Recycle, Droplet, PartyPopper, UtensilsCrossed, Rocket, Globe, Soup, Users, Waves, Sprout, ClipboardList, Truck, Sparkles } from 'lucide-react';
@@ -81,6 +82,7 @@ const impactFaqs = [
 ];
 
 const Impact = () => {
+  const navigate = useNavigate();
   const [counters, setCounters] = useState({
     plastic: 0,
     water: 0,
@@ -376,7 +378,8 @@ const Impact = () => {
             </div>
           </div>
           
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-4 rounded-xl transition-smooth transform hover:scale-105 shadow-lg">
+          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-4 rounded-xl transition-smooth transform hover:scale-105 shadow-lg"
+            onClick={() => navigate("/contact")}>
             Join the Sustainable Dining Movement
           </Button>
         </div>

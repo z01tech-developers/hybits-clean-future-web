@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import heroImagejpg from "@/assets/hero-dishes.jpg";
@@ -14,6 +15,7 @@ const Home = () => {
     plastic: 0,
     dishes: 0,
   });
+  const navigate = useNavigate();
 
   // Animate counters on load
   useEffect(() => {
@@ -96,7 +98,12 @@ const Home = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-8 rounded-xl transition-smooth transform hover:scale-105 shadow-lg">Get a Quote</Button>
+                <Button
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-8 rounded-xl transition-smooth transform hover:scale-105 shadow-lg"
+                  onClick={() => navigate("/contact")}
+                >
+                  Get a Quote
+                </Button>
               </div>
             </div>
 
